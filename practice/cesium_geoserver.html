@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Include the CesiumJS JavaScript and CSS files -->
+  <script src ="http://localhost:8081/fyp/cesiumjs/Cesium-1.115/Build/Cesium/Cesium.js"></script> 
+   <link href="http://localhost:8081/fyp/cesiumjs/Cesium-1.115/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+   
+   
+    <!-- Bootstrap JS & CSS-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+  <title>3D Globe Viewer</title>
+
+  <style>
+    .cesiumContainer{
+      width:100%; 
+      height:700px; 
+      top:auto;
+      bottom: 0; 
+
+    }
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background-color: rgba(4, 4, 4, 0.116);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .navbar-button {
+      margin: 0 10px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .navbar-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  </head>
+<body>
+<!--navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="../images/landslide_viewer_logo.PNG" width="30" height="30" class="d-inline-block align-top" alt="">
+   
+      Landslide Viewer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Add Path <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Add Polygon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Query 3</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+ 
+
+
+  <div id="cesiumContainer" style="width:100%; 
+  height:550px; 
+  top:auto;
+  bottom: 0; 
+  padding-top: 45px;
+  padding-bottom: 0;"></div>
+  <div id="legend"></div>
+  <!--<nav class="navbar">
+    <button id="button1" class="navbar-button">Button 1</button>
+    <button id="button2" class="navbar-button">Button 2</button>
+    <button id="button3" class="navbar-button">Button 3</button>
+  </nav>
+-->
+
+  <script type="module" src="cesium_geoserver.js"></script>
+
+ 
+ </div>
+</body>
+</html>
