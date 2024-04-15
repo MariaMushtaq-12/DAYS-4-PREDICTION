@@ -13,30 +13,41 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     });
 
-    // Function to add a layer to the map
-    function addLayer(name, source) {
+    // Add event listener for form submission
+    const form = document.getElementById('user-input-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get uploaded files
+        const soilMoistureFile = document.getElementById('soil-moisture').files[0];
+        const ndviFile = document.getElementById('ndvi').files[0];
+        const spiFile = document.getElementById('spi').files[0];
+        const stiFile = document.getElementById('sti').files[0];
+        const lithologyFile = document.getElementById('lithology').files[0];
+
+        // Add layers to the map
+        addLayer('Soil Moisture', soilMoistureFile);
+        addLayer('NDVI', ndviFile);
+        addLayer('SPI', spiFile);
+        addLayer('STI', stiFile);
+        addLayer('Lithology', lithologyFile);
+    });
+});
+
+// Function to add a layer to the map
+function addLayer(name, file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        const url = event.target.result;
         const layer = new ol.layer.Image({
             title: name,
             source: new ol.source.ImageStatic({
-                url: source,
+                url: url,
                 projection: 'EPSG:3857', // Assuming the projection of the uploaded files is EPSG:3857 (Web Mercator)
                 imageExtent: [-20037508.34, -20037508.34, 20037508.34, 20037508.34] // Full extent of EPSG:3857
             })
         });
         map.addLayer(layer);
-    }
-
-    // Add layers for testing
-    addLayer("Open Street Map", "https://a.tile.openstreetmap.org/")
-    addLayer("ESRI World Imagery", "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}");
-
-    // Add Layers widget
-    const layerSwitcher = new ol.control.LayerSwitcher({
-        reverse: true,
-        groupSelectStyle: 'children',
-        showOpacity: true,
-        showLabels: true,
-        collapsed: false
-    });
-    map.addControl(layerSwitcher);
-});
+    };
+    reader.readAsDataURL(file);
+}
