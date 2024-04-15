@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //-------------------------------------------------------------------------------------------------------------------
    //user button attribute start here
-
+/** */
   // Get the user maps link
 const userMapsLink = document.getElementById("user");
 
