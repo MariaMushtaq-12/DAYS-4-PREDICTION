@@ -14,13 +14,19 @@
   <title>3D Globe Viewer</title>
 
   <style>
+    body {
+  background-color: #949292; /* Change this value to your desired color */
+}
     .cesiumContainer{
       width:100%; 
-      height:700px; 
+      height:500px; 
       top:auto;
       bottom: 0; 
+      padding-top: 45px;
+      padding-bottom: 0;
 
     }
+    
     .navbar {
       position: absolute;
       top: 0;
@@ -29,24 +35,81 @@
       height: 50px;
       background-color: rgba(4, 4, 4, 0.116);
       display: flex;
-      align-items: center;
-      justify-content: center;
+      /**align-items: center;
+      justify-content: center;*/
       z-index: 100;
     }
+  /**  #leftContainer {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+    
+#contentBar {
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ddd;
+}*/
+#leftContainer {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
 
-    .navbar-button {
-      margin: 0 10px;
-      padding: 5px 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+#contentBar {
+  position: absolute;
+  top: auto; /* Adjust this value to position the contentBar below the leftContainer */
+  left: 312px;
+  
+  right:  0;
 
-    .navbar-button:hover {
-      background-color: #0056b3;
-    }
+  height: 50px; /* Adjust this value to set the height of the contentBar */
+  
+  background-color: #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+#weatherContainer {
+  top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+#weatherList {
+  max-height: 480px;
+  overflow-y: scroll;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#weatherList li {
+  margin-bottom: 10px;
+}
+
+
+
+
   </style>
   </head>
 <body>
@@ -55,11 +118,11 @@
     <a class="navbar-brand" href="#">
       <img src="../images/landslide_viewer_logo.PNG" width="30" height="30" class="d-inline-block align-top" alt="">
    
-      Landslide Viewer</a>
+      Dynamic Landslide Risk Viewer</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+   <!-- <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="#">Add Path <span class="sr-only">(current)</span></a>
@@ -74,26 +137,42 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </nav>
 
 
  
 
+<div  style="display: flex; justify-content: flex-end; margin-left: 20px;">
+  <div id="cesiumContainer" style="width: 920px; height: 500px; top: auto; bottom: 0; padding-top: 45px; padding-bottom: 0;">
+  </div>
+  </div>
+  
+ <!-- <div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px;">
+     Add your content here 
+  </div>
+<div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd;">
+  <img src="image1.png" alt="Image 1" width="50" height="50">
+  <img src="image2.png" alt="Image 2" width="50" height="50">
+  <img src="image3.png" alt="Image 3" width="50" height="50">
+</div>
 
-  <div id="cesiumContainer" style="width:100%; 
-  height:550px; 
-  top:auto;
-  bottom: 0; 
-  padding-top: 45px;
-  padding-bottom: 0;"></div>
-  <div id="legend"></div>
-  <!--<nav class="navbar">
-    <button id="button1" class="navbar-button">Button 1</button>
-    <button id="button2" class="navbar-button">Button 2</button>
-    <button id="button3" class="navbar-button">Button 3</button>
-  </nav>
 -->
+<div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px; border-bottom: 1px solid #ccc;">
+  <!-- Add your content here -->
+</div>
+<div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd; padding-left: 300px;">
+  <!-- Add your content here -->
+</div>
+
+<div id="weatherContainer" style="position: absolute; top: 600px; left: 0; right: 0; padding: 20px; background-color: #f1f1f1;">
+  <h2>Daily Rainfall (mm)</h2>
+  <ul id="weatherList">
+    <!-- Add your content here -->
+  </ul>
+</div>
+
+
 
   <script type="module" src="./js/maps.js"></script>
 
