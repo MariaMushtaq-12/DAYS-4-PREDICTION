@@ -85,14 +85,18 @@
 }
 
 #weatherContainer {
+  position: absolute;
   top: auto;
+  padding-right: 312px;
+  right: 0px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   background-color: #f1f1f1;
 }
-
+/**
 #weatherList {
   max-height: 480px;
   overflow-y: scroll;
@@ -106,7 +110,7 @@
 #weatherList li {
   margin-bottom: 10px;
 }
-
+*/
 
 
 
@@ -165,7 +169,7 @@
   <!-- Add your content here -->
 </div>
 
-<div id="weatherContainer" style="position: absolute; top: 600px; left: 0; right: 0; padding: 20px; background-color: #f1f1f1;">
+<div id="weatherContainer" style="position: absolute; top: 600px; left: 0; right: 0; padding: 20px; background-color: #140b0b;">
   <h2>Daily Rainfall (mm)</h2>
   <ul id="weatherList">
     <!-- Add your content here -->
@@ -174,7 +178,7 @@
 
 
 
-  <script type="module" src="cesium_geoserver.js"></script>
+  <script type="module" src="./cesium_geoserver.js"></script>
 
  
  </div>
