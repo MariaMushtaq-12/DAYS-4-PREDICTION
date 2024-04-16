@@ -84,27 +84,57 @@
   padding: 10px;
 }
 
-#weatherContainer {
-  top: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f1f1f1;
+
+
+.card-container {
+  display: flex; /* Arranges cards horizontally */
+  justify-content: space-around; /* Distributes cards evenly */
+  margin: 40px; /* Adds margin around the container */
+  margin-left: 350px;
 }
 
-#weatherList {
-  max-height: 480px;
-  overflow-y: scroll;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-flow: row wrap;
+.card {
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 40px; /* Padding inside the card */
+  border-radius: 20px; /* Rounded corners */
+  margin: 20px; /* Margin between cards */
+
+  text-align: center; /* Center text within the card */
 }
 
-#weatherList li {
-  margin-bottom: 10px;
+.rainfall-data {
+  margin: 10px; /* Add margin for spacing */
+}
+
+.rainfall-value {
+  display: flex; /* Arrange bullet and text horizontally */
+  align-items: center; /* Vertically align bullet and text */
+  margin-bottom: 5px; /* Add space between list items */
+}
+
+.rainfall-value:before {
+  content: ""; /* Empty content for pseudo-element */
+  display: inline-block; /* Display the pseudo-element */
+  width: 10px; /* Width of the bullet */
+  height: 10px; /* Height of the bullet */
+  margin-right: 5px; /* Add margin between bullet and text */
+  border-radius: 50%; /* Create a round bullet */
+}
+
+.rainfall-value.red:before {
+  background-color: red;
+}
+
+.rainfall-value.yellow:before {
+  background-color: yellow;
+}
+
+.rainfall-value.green:before {
+  background-color: green;
+}
+
+.rainfall-value.white:before {
+  background-color: white;
 }
 
 
@@ -165,12 +195,45 @@
   <!-- Add your content here -->
 </div>
 
-<div id="weatherContainer" style="position: absolute; top: 600px; left: 0; right: 0; padding: 20px; background-color: #f1f1f1;">
-  <h2>Daily Rainfall (mm)</h2>
-  <ul id="weatherList">
-    <!-- Add your content here -->
-  </ul>
+
+
+<div class="card-container">
+  <div class="card">
+    <h2>Card Title 1</h2>
+    <p>Add content here for card 1.</p>
+  </div>
+  <div class="card">
+    <h2>Card Title 2</h2>
+    <p>Add content here for card 2.</p>
+  </div>
+
+
+  <div class="card">
+    <h2>Legend</h2>
+
+
+    <div>
+      <ul style="list-style: none; padding: 0;">
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: blue;">&#9679;</span> 0-0.5</li>
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: green;">&#9679;</span> 0.5-0.7</li>
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: yellow;">&#9679;</span> 0.7-0.9</li>
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: red;">&#9679;</span> 0.9-1.0</li>
+      </ul>
+    </div>
+    <div>
+      <ul style="list-style: none; padding: 0;">
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: blue;">&#9679;</span> No Risk</li>
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: green;">&#9679;</span> At Low Risk</li>
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: yellow;">&#9679;</span> At Medium Risk</li>
+        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: red;">&#9679;</span> At High Risk</li>
+      </ul>
+    </div>
+        
+  
+    
+  </div>
 </div>
+
 
 
 
