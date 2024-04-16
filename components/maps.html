@@ -57,16 +57,34 @@
   padding: 10px;
   background-color: #ddd;
 }*/
+/*
 #leftContainer {
-  position: absolute;
-  top: 50px;
+  position:fixed;
+  top: 0;
   left: 0;
   bottom: 0;
   width: 300px;
   background-color: #f1f1f1;
   padding: 20px;
-  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
+*/
+
+#leftContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+/*
+#dynamicDataContainer {
+  /* Add your CSS styles here 
+}*/
+
 
 #contentBar {
   position: absolute;
@@ -102,40 +120,6 @@
   text-align: center; /* Center text within the card */
 }
 
-.rainfall-data {
-  margin: 10px; /* Add margin for spacing */
-}
-
-.rainfall-value {
-  display: flex; /* Arrange bullet and text horizontally */
-  align-items: center; /* Vertically align bullet and text */
-  margin-bottom: 5px; /* Add space between list items */
-}
-
-.rainfall-value:before {
-  content: ""; /* Empty content for pseudo-element */
-  display: inline-block; /* Display the pseudo-element */
-  width: 10px; /* Width of the bullet */
-  height: 10px; /* Height of the bullet */
-  margin-right: 5px; /* Add margin between bullet and text */
-  border-radius: 50%; /* Create a round bullet */
-}
-
-.rainfall-value.red:before {
-  background-color: red;
-}
-
-.rainfall-value.yellow:before {
-  background-color: yellow;
-}
-
-.rainfall-value.green:before {
-  background-color: green;
-}
-
-.rainfall-value.white:before {
-  background-color: white;
-}
 
 
 
@@ -152,22 +136,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-   <!-- <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add Path <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add Polygon</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Query 3</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-    </div> -->
+  
   </nav>
 
 
@@ -178,19 +147,18 @@
   </div>
   </div>
   
- <!-- <div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px;">
-     Add your content here 
+
+ <!-- 
+<div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; height: 100vh; background-color: #f1f1f1; padding: 20px; border-bottom: 1px solid #ccc;">
+  
+</div>-->
+
+<div id="leftContainer" style="position: fixed; top: 0; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px; border-right: 1px solid #ccc;">
+  <div id="dynamicDataContainer">
+    <!-- Add your dynamic data here -->
   </div>
-<div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd;">
-  <img src="image1.png" alt="Image 1" width="50" height="50">
-  <img src="image2.png" alt="Image 2" width="50" height="50">
-  <img src="image3.png" alt="Image 3" width="50" height="50">
 </div>
 
--->
-<div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px; border-bottom: 1px solid #ccc;">
-  <!-- Add your content here -->
-</div>
 <div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd; padding-left: 300px;">
   <!-- Add your content here -->
 </div>
@@ -199,33 +167,33 @@
 
 <div class="card-container">
   <div class="card">
-    <h2>Card Title 1</h2>
+    <h3>Card Title 1</h3>
     <p>Add content here for card 1.</p>
   </div>
   <div class="card">
-    <h2>Card Title 2</h2>
+    <h3>Card Title 2</h3>
     <p>Add content here for card 2.</p>
   </div>
 
 
   <div class="card">
-    <h2>Legend</h2>
+    <h3>Legend</h3>
 
 
     <div>
       <ul style="list-style: none; padding: 0;">
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: blue;">&#9679;</span> 0-0.5</li>
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: green;">&#9679;</span> 0.5-0.7</li>
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: yellow;">&#9679;</span> 0.7-0.9</li>
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: red;">&#9679;</span> 0.9-1.0</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> 0-0.5</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> 0.5-0.7</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> 0.7-0.9</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> 0.9-1.0</li>
       </ul>
     </div>
     <div>
       <ul style="list-style: none; padding: 0;">
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: blue;">&#9679;</span> No Risk</li>
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: green;">&#9679;</span> At Low Risk</li>
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: yellow;">&#9679;</span> At Medium Risk</li>
-        <li style="display: inline-block; font-size: 2em; margin-right: 1em;"><span style="color: red;">&#9679;</span> At High Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> No Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> At Low Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> At Medium Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> At High Risk</li>
       </ul>
     </div>
         
