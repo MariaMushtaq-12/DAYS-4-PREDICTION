@@ -62,3 +62,9 @@ function loadContent(page) {
 }
 
 
+/**function loadContent(page) {
+    fetch('components/js' + page + '.js')  // Adjust the path here
+        .then(response => response.text())
+        .then(data => document.getElementById('content').innerHTML = data)
+        .catch(error => console.log('Error fetching content: ', error));
+}*/
