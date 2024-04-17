@@ -146,3 +146,5 @@ function drawPath(point1, point2) {
 }
 
 
+const dynamicDataContainer = document.getElementById('dynamicDataContainer');
+dynamicDataContainer.innerHTML = '<p>This is some dynamic data.</p>';
