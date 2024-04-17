@@ -16,6 +16,10 @@
   <style>
     body {
   background-color: #949292; /* Change this value to your desired color */
+background-origin: padding-box;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
     .cesiumContainer{
       width:100%; 
@@ -35,7 +39,7 @@
       height: 50px;
       background-color: rgba(4, 4, 4, 0.116);
       display: flex;
-      /**align-items: center;
+      /*align-items: center;
       justify-content: center;*/
       z-index: 100;
     }
@@ -57,21 +61,41 @@
   padding: 10px;
   background-color: #ddd;
 }*/
+/*
 #leftContainer {
-  position: absolute;
-  top: 50px;
+  position:fixed;
+  top: 0;
   left: 0;
   bottom: 0;
   width: 300px;
   background-color: #f1f1f1;
   padding: 20px;
-  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
+*/
+
+#leftContainer {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 295px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+/*
+#dynamicDataContainer {
+  /* Add your CSS styles here 
+}*/
+
 
 #contentBar {
   position: absolute;
   top: auto; /* Adjust this value to position the contentBar below the leftContainer */
-  left: 312px;
+  /*left: 312px;*/
+  width: 920px;
+  bottom: 0;
   
   right:  0;
 
@@ -84,33 +108,25 @@
   padding: 10px;
 }
 
-#weatherContainer {
-  position: absolute;
-  top: auto;
-  padding-right: 312px;
-  right: 0px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f1f1f1;
-}
-/**
-#weatherList {
-  max-height: 480px;
-  overflow-y: scroll;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-flow: row wrap;
+
+
+.card-container {
+  display: flex; /* Arranges cards horizontally */
+  justify-content: space-around; /* Distributes cards evenly */
+  margin: 40px; /* Adds margin around the container */
+  margin-left: 350px;
 }
 
-#weatherList li {
-  margin-bottom: 10px;
+.card {
+  background-color: #f2f2f2; /* Light gray background */
+  padding: 40px; /* Padding inside the card */
+  border-radius: 20px; /* Rounded corners */
+  margin: 20px; /* Margin between cards */
+
+  text-align: center; /* Center text within the card */
 }
-*/
+
+
 
 
 
@@ -126,22 +142,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-   <!-- <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add Path <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add Polygon</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Query 3</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-    </div> -->
+  
   </nav>
 
 
@@ -152,29 +153,116 @@
   </div>
   </div>
   
- <!-- <div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px;">
-     Add your content here 
+
+ <!-- 
+<div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; height: 100vh; background-color: #f1f1f1; padding: 20px; border-bottom: 1px solid #ccc;">
+  
+</div>-->
+
+<div id="leftContainer">
+  <div id="dynamicDataContainer">
+   
+    <!-- Add your dynamic data here -->
   </div>
-<div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd;">
-  <img src="image1.png" alt="Image 1" width="50" height="50">
-  <img src="image2.png" alt="Image 2" width="50" height="50">
-  <img src="image3.png" alt="Image 3" width="50" height="50">
 </div>
 
--->
-<div id="leftContainer" style="position: absolute; top: 50px; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px; border-bottom: 1px solid #ccc;">
-  <!-- Add your content here -->
-</div>
 <div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd; padding-left: 300px;">
   <!-- Add your content here -->
+  <div > <ul>
+    
+    <li style = "text-align:calc( );">boundary line</li>
+  </ul></div>
+  <div>
+    <ul style="list-style: none; padding: 0;">
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> 0-0.5</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> 0.5-0.7</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> 0.7-0.9</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> 0.9-1.0</li>
+    </ul>
+  </div>
+
+  <div>
+    <ul style="list-style: none; padding: 0;">
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> No Risk</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> At Low Risk</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> At Medium Risk</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> At High Risk</li>
+    </ul>
+  </div>
+
+ 
 </div>
 
-<div id="weatherContainer" style="position: absolute; top: 600px; left: 0; right: 0; padding: 20px; background-color: #140b0b;">
-  <h2>Daily Rainfall (mm)</h2>
-  <ul id="weatherList">
-    <!-- Add your content here -->
-  </ul>
+
+<!--
+<div class="card-container">
+  <div class="card">
+    <h3>Card Title 1</h3>
+    <p>Add content here for card 1.</p>
+    
+  
+      <br>
+     
+      <table border="1 px" style="border-color:rgb(34, 153, 84)">
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">Sr.No</th>
+      <th style ="background-color:rgb(245, 176, 65)">Roll No</th>
+      <th style ="background-color:rgb(245, 176, 65)">Name</th>
+      <th style ="background-color:rgb(245, 176, 65)">Team</th>
+      </tr>
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">1</th>
+      <td>1001</td>
+      <td>John</td>
+      <td>Red</td>
+      </tr>
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">2</th>
+      <td>1002</td>
+      <td>Peter</td>
+      <td>Blue</td>
+      </tr>
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">3</th>
+      <td>1003</td>
+      <td>Henry</td>
+      <td>Green</td>
+      </tr>
+      </table>
+
+  </div>
+  <div class="card">
+    <h3>Card Title 2</h3>
+    <p>Add content here for card 2.</p>
+  </div>
+
+
+  <div class="card">
+    <h3>Legend</h3>
+
+
+    <div>
+      <ul style="list-style: none; padding: 0;">
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> 0-0.5</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> 0.5-0.7</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> 0.7-0.9</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> 0.9-1.0</li>
+      </ul>
+    </div>
+    <div>
+      <ul style="list-style: none; padding: 0;">
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> No Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> At Low Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> At Medium Risk</li>
+        <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> At High Risk</li>
+      </ul>
+    </div>
+        
+  
+  -->
+  </div>
 </div>
+
 
 
 
