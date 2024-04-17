@@ -16,6 +16,10 @@
   <style>
     body {
   background-color: #949292; /* Change this value to your desired color */
+background-origin: padding-box;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
     .cesiumContainer{
       width:100%; 
@@ -35,7 +39,7 @@
       height: 50px;
       background-color: rgba(4, 4, 4, 0.116);
       display: flex;
-      /**align-items: center;
+      /*align-items: center;
       justify-content: center;*/
       z-index: 100;
     }
@@ -71,11 +75,11 @@
 */
 
 #leftContainer {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 50px;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 295px;
   background-color: #f1f1f1;
   padding: 20px;
   border-right: 1px solid #ccc;
@@ -89,7 +93,9 @@
 #contentBar {
   position: absolute;
   top: auto; /* Adjust this value to position the contentBar below the leftContainer */
-  left: 312px;
+  /*left: 312px;*/
+  width: 920px;
+  bottom: 0;
   
   right:  0;
 
@@ -153,22 +159,77 @@
   
 </div>-->
 
-<div id="leftContainer" style="position: fixed; top: 0; left: 0; bottom: 0; width: 300px; background-color: #f1f1f1; padding: 20px; border-right: 1px solid #ccc;">
+<div id="leftContainer">
   <div id="dynamicDataContainer">
+   
     <!-- Add your dynamic data here -->
   </div>
 </div>
 
 <div id="contentBar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #ddd; padding-left: 300px;">
   <!-- Add your content here -->
+  <div > <ul>
+    
+    <li style = "text-align:calc( );">boundary line</li>
+  </ul></div>
+  <div>
+    <ul style="list-style: none; padding: 0;">
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> 0-0.5</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> 0.5-0.7</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> 0.7-0.9</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> 0.9-1.0</li>
+    </ul>
+  </div>
+
+  <div>
+    <ul style="list-style: none; padding: 0;">
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: blue;">&#9679;</span> No Risk</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: green;">&#9679;</span> At Low Risk</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: yellow;">&#9679;</span> At Medium Risk</li>
+      <li style="display: inline-block; font-size: 1em; margin-right: 0.5em;"><span style="color: red;">&#9679;</span> At High Risk</li>
+    </ul>
+  </div>
+
+ 
 </div>
 
 
-
+<!--
 <div class="card-container">
   <div class="card">
     <h3>Card Title 1</h3>
     <p>Add content here for card 1.</p>
+    
+  
+      <br>
+     
+      <table border="1 px" style="border-color:rgb(34, 153, 84)">
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">Sr.No</th>
+      <th style ="background-color:rgb(245, 176, 65)">Roll No</th>
+      <th style ="background-color:rgb(245, 176, 65)">Name</th>
+      <th style ="background-color:rgb(245, 176, 65)">Team</th>
+      </tr>
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">1</th>
+      <td>1001</td>
+      <td>John</td>
+      <td>Red</td>
+      </tr>
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">2</th>
+      <td>1002</td>
+      <td>Peter</td>
+      <td>Blue</td>
+      </tr>
+      <tr>
+      <th style ="background-color:rgb(245, 176, 65)">3</th>
+      <td>1003</td>
+      <td>Henry</td>
+      <td>Green</td>
+      </tr>
+      </table>
+
   </div>
   <div class="card">
     <h3>Card Title 2</h3>
@@ -198,7 +259,7 @@
     </div>
         
   
-    
+  -->
   </div>
 </div>
 
