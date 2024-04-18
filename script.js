@@ -37,7 +37,7 @@ userMapsLink.addEventListener("click", function(event) {
 
 //-------------------------------------------------------------------------------------------------------------------   
 
-
+/**
 document.getElementById('about').addEventListener('click', function (event) {
     event.preventDefault();
     loadContent('about');
@@ -48,7 +48,7 @@ document.getElementById('about').addEventListener('click', function (event) {
     document.getElementById('alert').addEventListener('click', function (event) {
         event.preventDefault();
         loadContent('alert');
-    });
+    }); */
 });
 
   
