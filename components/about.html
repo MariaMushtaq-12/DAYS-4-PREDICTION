@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
 <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 <style>
         .map {
           height: 400px;
@@ -17,6 +24,33 @@
         }
       </style>
   <title>Open Layers testing</title>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="main.html" id="main">Landslide Prediction</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./maps.html" id="Maps">Maps</a>
+          </li>
+          <li class="nav-item">
+            <!--demo page is related to this one line. now this is as user maps-->
+            <a class="nav-link" href="./user.html" id="user">User Maps</a>
+          </li>
+          <!--data page is related to this one line now this is as red alert-->
+          <li class="nav-item">
+            <a class="nav-link" href="./alert.html" id="alert">Red Alert</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html" id="about">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </head>
 <body>
 <h2>My Map</h2>
@@ -25,7 +59,10 @@
     <button id="flyttkanpp" onclick="flytt()">Flytt 300 meter</button>
     </div>
 </header>
-<div id="map" class="map"></div>
+
+
+  <div id="map" class="map"></div>
+
 <script type="text/javascript">
 
 
