@@ -1,0 +1,12 @@
+1- falcon
+2- first run it
+4- call your py file firest
+5- then call resp.json
+
+
+
+frontend 
+1- call url of falcon
+2- then make its function then passon it to next function
+3-settimeinterval(api call whole ) 
+4-overlay(set time interval)
